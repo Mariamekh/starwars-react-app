@@ -1,3 +1,23 @@
+import {HTTP , HTTPS} from '@constants/api'
+
+/**
+ * Изменяет URL с HTTP на HTTPS
+ * @param {String} url - url для изменения
+ * @returns {Strings} - url с HTTPS
+ * 
+ */
+
+/**
+ * Отправляет запрос Fetch
+ * @param {String} url - url для запроса
+ * @returns {Promise} - Promise с результатом запроса
+ * 
+ */
+
+export const changeHTTP = url => {
+    const result = url ? url.replace(HTTP, HTTPS) :url;
+    return result;
+}
 
 export const getApiResource = async (url) => {
     try {
@@ -14,6 +34,8 @@ export const getApiResource = async (url) => {
         return false;
     }
 }
+
+
 
 // getApiResource(SWAPI_ROOT+SWAPI_PEOPLE)
 //     .then(body => console.log(body))
