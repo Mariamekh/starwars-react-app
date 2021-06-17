@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 
 import { withErrorApi } from "@hoc-helpers/withErrorApi";
 
+import PersonLinkBack from "@components/PersonPage/PersonLinkBack";
 import PersonInfo from "@components/PersonPage/PersonInfo";
 import PersonPhoto from "@components/PersonPage/PersonPhoto";
 
@@ -45,6 +46,8 @@ const PersonPage = ({ match, setErrorApi }) => {
 
   return (
     <>
+      <PersonLinkBack />
+
       <div className={styles.wrapper}>
         <span className={styles.person__name}>{personName}</span>
 
