@@ -1,15 +1,18 @@
 import PropTypes from "prop-types";
+import styles from "./PersonPhoto.module.css";
 
 const PersonPhoto = ({ personPhoto, personName }) => {
   return (
-    <div>
-      <img src={personPhoto} alt={personName} />
-    </div>
+    <>
+      <div className={styles.container}>
+        <img className={styles.photo} src={personPhoto} alt={personName} />
+      </div>
+    </>
   );
 };
 
 PersonPhoto.propTypes = {
-  personPhoto: PropTypes.object,
+  personPhoto: PropTypes.string,
   personName: PropTypes.string,
 };
 

@@ -1,15 +1,16 @@
-/* eslint-disable react/prop-types */
 import PropTypes from "prop-types";
-
-import PersonPhoto from "@components/PersonPage/PersonPhoto";
-import PersonInfo from "@components/PersonPage/PersonInfo";
+import { useState, useEffect } from "react";
 
 import { withErrorApi } from "@hoc-helpers/withErrorApi";
+
+import PersonInfo from "@components/PersonPage/PersonInfo";
+import PersonPhoto from "@components/PersonPage/PersonPhoto";
+
 import { getApiResource } from "@utils/network";
-import styles from "./PersonPage.module.css";
-import { useEffect, useState } from "react";
-import { API_PERSON } from "@constants/api";
 import { getPeopleImage } from "@services/getPeopleData";
+import { API_PERSON } from "@constants/api";
+
+import styles from "./PersonPage.module.css";
 
 const PersonPage = ({ match, setErrorApi }) => {
   const [personInfo, setPersonInfo] = useState(null);
@@ -23,16 +24,18 @@ const PersonPage = ({ match, setErrorApi }) => {
 
       if (res) {
         setPersonInfo([
-          { tittle: "Height", data: res.height },
-          { tittle: "Mass", data: res.mass },
-          { tittle: "Hair Color", data: res.hair_color },
-          { tittle: "Eye Color", data: res.eye_color },
-          { tittle: "Birth Year", data: res.birth_year },
-          { tittle: "Gender", data: res.gender },
+          { title: "Height", data: res.height },
+          { title: "Mass", data: res.mass },
+          { title: "Hair Color", data: res.hair_color },
+          { title: "Skin Color", data: res.skin_color },
+          { title: "Eye Color", data: res.eye_color },
+          { title: "Birth Year", data: res.birth_year },
+          { title: "Gender", data: res.gender },
         ]);
 
         setPersonName(res.name);
         setPersonPhoto(getPeopleImage(id));
+
         setErrorApi(false);
       } else {
         setErrorApi(true);
@@ -42,11 +45,15 @@ const PersonPage = ({ match, setErrorApi }) => {
 
   return (
     <>
-      <h1>{personName}</h1>
+      <div className={styles.wrapper}>
+        <span className={styles.person__name}>{personName}</span>
 
-      <PersonPage personPhoto={personPhoto} personName={personName} />
+        <div className={styles.container}>
+          <PersonPhoto personPhoto={personPhoto} personName={personName} />
 
-      {personInfo && <PersonInfo personInfo={personInfo} />}
+          {personInfo && <PersonInfo personInfo={personInfo} />}
+        </div>
+      </div>
     </>
   );
 };
