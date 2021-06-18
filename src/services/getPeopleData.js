@@ -1,5 +1,5 @@
 import {
-  HTTP,
+  HTTPS,
   SWAPI_ROOT,
   SWAPI_PEOPLE,
   SWAPI_PARAM_PAGE,
@@ -14,8 +14,9 @@ export const getPeoplePageId = (url) => {
 };
 
 const getId = (url, category) => {
-  const id = url.replace(HTTP + SWAPI_ROOT + category, "").replace(/\//g, "");
-
+  const id = url
+    .replace(`${HTTPS}${SWAPI_ROOT}${category}`, "")
+    .replace(/\//g, "");
   return id;
 };
 

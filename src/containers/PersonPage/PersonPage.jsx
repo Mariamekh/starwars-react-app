@@ -21,6 +21,7 @@ const PersonPage = ({ match, setErrorApi }) => {
   useEffect(() => {
     (async () => {
       const id = match.params.id;
+
       const res = await getApiResource(`${API_PERSON}/${id}/`);
 
       if (res) {

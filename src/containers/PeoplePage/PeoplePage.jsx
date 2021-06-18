@@ -15,12 +15,11 @@ import { API_PEOPLE } from "@constants/api";
 import { useQueryParams } from "@hooks/useQueryParams";
 
 import styles from "./PeoplePage.module.css";
-
 const PeoplePage = ({ setErrorApi }) => {
   const [people, setPeople] = useState(null);
   const [prevPage, setPrevPage] = useState(null);
   const [nextPage, setNextPage] = useState(null);
-  const [countPage, setCountPage] = useState(1);
+  const [counterPage, setCounterPage] = useState(1);
 
   const query = useQueryParams();
   const queryPage = query.get("page");
@@ -32,17 +31,18 @@ const PeoplePage = ({ setErrorApi }) => {
       const peopleList = res.results.map(({ name, url }) => {
         const id = getPeopleId(url);
         const img = getPeopleImage(id);
+
         return {
           id,
           name,
           img,
         };
       });
-
+      console.log(url);
       setPeople(peopleList);
       setPrevPage(changeHTTP(res.previous));
       setNextPage(changeHTTP(res.next));
-      setCountPage(getPeoplePageId(url));
+      setCounterPage(getPeoplePageId(url));
       setErrorApi(false);
     } else {
       setErrorApi(true);
@@ -59,7 +59,7 @@ const PeoplePage = ({ setErrorApi }) => {
         getResource={getResource}
         prevPage={prevPage}
         nextPage={nextPage}
-        countPage={countPage}
+        counterPage={counterPage}
       />
       {people && <PeopleList people={people} />}
     </>
