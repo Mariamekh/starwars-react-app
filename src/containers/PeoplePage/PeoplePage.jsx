@@ -15,6 +15,7 @@ import { API_PEOPLE } from "@constants/api";
 import { useQueryParams } from "@hooks/useQueryParams";
 
 import styles from "./PeoplePage.module.css";
+
 const PeoplePage = ({ setErrorApi }) => {
   const [people, setPeople] = useState(null);
   const [prevPage, setPrevPage] = useState(null);
@@ -38,7 +39,6 @@ const PeoplePage = ({ setErrorApi }) => {
           img,
         };
       });
-      console.log(url);
       setPeople(peopleList);
       setPrevPage(changeHTTP(res.previous));
       setNextPage(changeHTTP(res.next));
