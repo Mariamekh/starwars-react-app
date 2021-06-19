@@ -13,6 +13,7 @@ import { getPeopleImage } from "@services/getPeopleData";
 import { API_PERSON } from "@constants/api";
 
 import styles from "./PersonPage.module.css";
+import { useSelector } from "react-redux";
 
 const PersonFilms = React.lazy(() =>
   import("@components/PersonPage/PersonFilms")
@@ -24,12 +25,16 @@ const PersonPage = ({ match, setErrorApi }) => {
   const [personName, setPersonName] = useState(null);
   const [personPhoto, setPersonPhoto] = useState(null);
   const [personFilms, setPersonFilms] = useState(null);
+  const storeDate = useSelector((state) => state.favoriteReducer);
+  const [personFavorite, setPersonFavorite] = useState(false);
 
   useEffect(() => {
     (async () => {
       const id = match.params.id;
       setPersonId(id);
       const res = await getApiResource(`${API_PERSON}/${id}/`);
+
+      storeDate[id] ? setPersonFavorite(true) : setPersonFavorite(false);
 
       if (res) {
         setPersonInfo([
@@ -63,6 +68,8 @@ const PersonPage = ({ match, setErrorApi }) => {
             personPhoto={personPhoto}
             personId={personId}
             personName={personName}
+            personFavorite={personFavorite}
+            setPersonFavorite={setPersonFavorite}
           />
           {personInfo && <PersonInfo personInfo={personInfo} />}
           {personFilms && (
