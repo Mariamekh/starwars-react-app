@@ -1,0 +1,14 @@
+input {
+    min-width: 250px;
+    padding: 6px 10px;
+    padding-right: calc(var(--clear-width) + 15px);
+    border: var(--border) solid;
+    border-color: var(--color-lightgray);
+    border-radius: var(--border-radius);
+    font-size: 15px;
+    font-family: var(--font-family-main);
+    outline: none;
+}
+input:focus {
+    border-color: var(--color-blue);
+}
