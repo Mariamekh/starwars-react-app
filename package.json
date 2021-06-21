@@ -1,6 +1,7 @@
 {
   "name": "react-star-wars",
   "version": "0.1.0",
+  "homepage": "https://mariamekh.github.io/starwars-react-app/",
   "private": true,
   "dependencies": {
     "classnames": "^2.2.6",
