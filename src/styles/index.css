@@ -40,12 +40,13 @@
 	--theme-dark-header: #ca6c6f;
 	--theme-neitral-header: #cccc46;
 	--theme-default-header: var(--theme-neitral-header);
-	
-	--theme-light-bgimage: #dfe2df;
-	--theme-dark-bgimage: #ca6c6f;
-	--theme-neitral-bgimage:url(@static/bg.jpg);
-	 
-	--theme-default-bgimage: var(--theme-neitral-bgimage) ;
+
+	--theme-light-bgimage: linear-gradient(to right bottom, #051937, #162454, #312d70, #533389, #7a359f);
+	--theme-dark-bgimage: linear-gradient(to right top, #1f1823, #1f1527, #1e132c, #1b1131, #170f36);
+	;
+	--theme-neitral-bgimage: url(@static/bg.jpg);
+
+	--theme-default-bgimage: var(--theme-neitral-bgimage);
 }
 
 body {
