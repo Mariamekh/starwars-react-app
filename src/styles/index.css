@@ -1,21 +1,21 @@
 :root {
-	--color-white:     #fff;
-	--color-black:     #000;
-	--color-yellow:    #ffff00;
+	--color-white: #fff;
+	--color-black: #000;
+	--color-yellow: #ffff00;
 	--color-dark-gray: #10100e;
 
-	--color-blue:   #6a83fb;
+	--color-blue: #6a83fb;
 	--color-violet: #ae72c2;
-	--color-red:    #f75d83;
+	--color-red: #f75d83;
 
 	--spacing-ultrasmall: 5px;
-	--spacing-small:      10px;
-	--spacing-medium:     20px;
-	--spacing-large:      30px;
+	--spacing-small: 10px;
+	--spacing-medium: 20px;
+	--spacing-large: 30px;
 
-	--font-size-main:      16px;
+	--font-size-main: 16px;
 	--font-size-subheader: 18px;
-	--font-size-header:    26px;
+	--font-size-header: 26px;
 
 	--margin-list: 7px;
 	--width-max: 1200px;
@@ -35,8 +35,17 @@
 		0 0 2px var(--color-white),
 		0 0 40px var(--color-blue);
 
-	--theme-default-header: #cccc46;
-	--theme-default-bgimage: url(@static/bg.jpg);
+	/*THEMES*/
+	--theme-light-header: #dfe2df;
+	--theme-dark-header: #ca6c6f;
+	--theme-neitral-header: #cccc46;
+	--theme-default-header: var(--theme-neitral-header);
+	
+	--theme-light-bgimage: #dfe2df;
+	--theme-dark-bgimage: #ca6c6f;
+	--theme-neitral-bgimage:url(@static/bg.jpg);
+	 
+	--theme-default-bgimage: var(--theme-neitral-bgimage) ;
 }
 
 body {
@@ -51,9 +60,11 @@ body {
 	background-position: top left;
 	background-attachment: fixed;
 }
+
 img {
 	display: block;
 }
+
 .header__text {
 	line-height: 1.7;
 	font-size: var(--font-size-header);
