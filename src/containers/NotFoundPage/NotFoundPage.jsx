@@ -1,6 +1,6 @@
-import { useLocation } from "react-router";
+import { useLocation } from "react-router-dom";
+import img from "./img/not-found.jpg";
 import styles from "./NotFoundPage.module.css";
-import img from "./img/notfound.png";
 
 const NotFoundPage = () => {
   let location = useLocation();

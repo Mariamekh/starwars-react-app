@@ -1,12 +1,20 @@
+/*
+Формат CSS-переменной:
+--theme-default-УникальноеИмя # дефолтная переменная
+--theme-light-УникальноеИмя   # для "light"
+--theme-dark-УникальноеИмя    # для "dark"
+--theme-neitral-УникальноеИмя # для "neitral"
+*/
+
 export const changeCssVariables = (theme) => {
   const root = document.querySelector(":root");
 
-  const changeArray = ["header", "bgimage"];
+  const cssVariables = ["header", "bgimage"];
 
-  changeArray.forEach((property) => {
-    return root.style.setProperty(
-      `--theme-default-${property}`,
-      `var(--theme-${theme}-${property}`
+  cssVariables.forEach((element) => {
+    root.style.setProperty(
+      `--theme-default-${element}`,
+      `var(--theme-${theme}-${element})`
     );
   });
 };

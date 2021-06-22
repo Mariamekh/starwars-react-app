@@ -1,14 +1,14 @@
+/* eslint-disable react/prop-types */
 import React, { useContext, useState } from "react";
 import { changeCssVariables } from "@services/changeCssVariables";
-
-export const ThemeContext = React.createContext();
 
 export const THEME_LIGHT = "light";
 export const THEME_DARK = "dark";
 export const THEME_NEITRAL = "neitral";
 
-// eslint-disable-next-line react/prop-types
-const ThemeProvider = ({ children, ...props }) => {
+const ThemeContext = React.createContext();
+
+export const ThemeProvider = ({ children, ...props }) => {
   const [theme, setTheme] = useState(null);
 
   const change = (name) => {
@@ -17,7 +17,13 @@ const ThemeProvider = ({ children, ...props }) => {
   };
 
   return (
-    <ThemeContext.Provider value={{ theme, change }} {...props}>
+    <ThemeContext.Provider
+      value={{
+        theme,
+        change,
+      }}
+      {...props}
+    >
       {children}
     </ThemeContext.Provider>
   );

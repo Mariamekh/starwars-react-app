@@ -1,19 +1,19 @@
 import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
-import {
-  removePersonFromFavorite,
-  setPersonToFavorite,
-} from "../../../store/actions";
+
+import { setPersonToFavorite, removePersonFromFavorite } from "@store/actions";
+
+import iconFavorite from "./img/favorite.svg";
+import iconFavoriteFill from "./img/favorite-fill.svg";
+
 import styles from "./PersonPhoto.module.css";
-import iconFavorite from "./img/remove.svg";
-import iconFavoriteFill from "./img/add.svg";
 
 const PersonPhoto = ({
   personId,
   personPhoto,
   personName,
-  setPersonFavorite,
   personFavorite,
+  setPersonFavorite,
 }) => {
   const dispatch = useDispatch();
 
@@ -24,30 +24,35 @@ const PersonPhoto = ({
     } else {
       dispatch(
         setPersonToFavorite({
-          [personId]: { name: personName, img: personPhoto },
+          [personId]: {
+            name: personName,
+            img: personPhoto,
+          },
         })
       );
       setPersonFavorite(true);
     }
   };
+
   return (
     <>
       <div className={styles.container}>
         <img className={styles.photo} src={personPhoto} alt={personName} />
         <img
-          src={personFavorite ? iconFavorite : iconFavoriteFill}
+          src={personFavorite ? iconFavoriteFill : iconFavorite}
           onClick={dispatchFavoritePeople}
           className={styles.favorite}
-        />{" "}
+          alt="Add to favorite"
+        />
       </div>
     </>
   );
 };
 
 PersonPhoto.propTypes = {
+  personId: PropTypes.string,
   personPhoto: PropTypes.string,
   personName: PropTypes.string,
-  personId: PropTypes.string,
   personFavorite: PropTypes.bool,
   setPersonFavorite: PropTypes.func,
 };

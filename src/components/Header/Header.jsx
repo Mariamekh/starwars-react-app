@@ -1,20 +1,22 @@
-import styles from "./Header.module.css";
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import Favorite from "./../Favorite/Favorite";
+import {
+  useTheme,
+  THEME_LIGHT,
+  THEME_DARK,
+  THEME_NEITRAL,
+} from "@context/ThemeProvider";
+import Favorite from "@components/Favorite";
+
 import imgDroid from "./img/droid.svg";
 import imgLightsaber from "./img/lightsaber.svg";
 import imgSpaceStation from "./img/space-station.svg";
-import { useTheme } from "@context/ThemeProvider";
-import { useEffect, useState } from "react";
-import {
-  THEME_DARK,
-  THEME_LIGHT,
-  THEME_NEITRAL,
-} from "../../context/ThemeProvider";
+
+import styles from "./Header.module.css";
 
 const Header = () => {
+  const [icon, setIcon] = useState(imgSpaceStation);
   const isTheme = useTheme();
-  const [icon, setIcon] = useState();
 
   useEffect(() => {
     switch (isTheme.theme) {
@@ -34,7 +36,8 @@ const Header = () => {
 
   return (
     <div className={styles.container}>
-      <img src={icon} className={styles.logo} alt="Star wars" />
+      <img className={styles.logo} src={icon} alt="Star Wars" />
+
       <ul className={styles.list__container}>
         <li>
           <NavLink to="/" exact>
@@ -45,16 +48,17 @@ const Header = () => {
           <NavLink to="/people/?page=1">People</NavLink>
         </li>
         <li>
+          <NavLink to="/not-found" exact>
+            Not Found
+          </NavLink>
+        </li>
+        <li>
           <NavLink to="/search" exact>
             Search
           </NavLink>
         </li>
-        <li>
-          <NavLink to="/not-found" exact>
-            Not found
-          </NavLink>
-        </li>
       </ul>
+
       <Favorite />
     </div>
   );

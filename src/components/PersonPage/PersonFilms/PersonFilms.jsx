@@ -1,8 +1,9 @@
+import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
+
+import { makeConcurrentRequest, changeHTTP } from "@utils/network";
+
 import styles from "./PersonFilms.module.css";
-import { makeConcurrentRequest } from "@utils/network";
-import { useEffect, useState } from "react";
-import { changeHTTP } from "../../../utils/network";
 
 const PersonFilms = ({ personFilms }) => {
   const [filmsName, setFilmsName] = useState([]);

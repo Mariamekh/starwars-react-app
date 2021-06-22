@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import { withErrorApi } from "@hoc-helpers/withErrorApi";
 import PeopleList from "@components/PeoplePage/PeopleList";
 import PeopleNavigation from "@components/PeoplePage/PeopleNavigation";
-
 import { getApiResource, changeHTTP } from "@utils/network";
 import {
   getPeopleId,
@@ -39,6 +38,7 @@ const PeoplePage = ({ setErrorApi }) => {
           img,
         };
       });
+
       setPeople(peopleList);
       setPrevPage(changeHTTP(res.previous));
       setNextPage(changeHTTP(res.next));

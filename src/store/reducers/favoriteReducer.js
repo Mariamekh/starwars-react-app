@@ -3,7 +3,18 @@ import {
   ADD_PERSON_TO_FAVORITE,
   REMOVE_PERSON_FROM_FAVORITE,
 } from "@store/constants/actionTypes";
-import { getLocalStorage } from "../../utils/localStorage";
+import { getLocalStorage } from "@utils/localStorage";
+
+// const store = {
+//     2: {
+//         name: 'C-3PO',
+//         img: ''
+//     },
+//     8: {
+//         name: 'R5-D4',
+//         img: ''
+//     }
+// }
 
 const initialState = getLocalStorage("store");
 

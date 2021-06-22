@@ -1,4 +1,3 @@
-import styles from "./ChooseSide.module.css";
 import PropTypes from "prop-types";
 import cn from "classnames";
 
@@ -11,6 +10,8 @@ import {
 import imgLightSide from "./img/light-side.jpg";
 import imgDarkSide from "./img/dark-side.jpg";
 import imgFalcon from "./img/falcon.jpg";
+
+import styles from "./ChooseSide.module.css";
 
 const ChooseSideItem = ({ classes, theme, text, img }) => {
   const isTheme = useTheme();
