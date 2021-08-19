@@ -1,1 +1,1 @@
-Deploy: https://starwars-reactapp.herokuapp.com/
+Deploy of the project: https://starwars-reactapp.herokuapp.com/
